@@ -17,13 +17,21 @@
             <p class="text-body-secondary mb-0">Masuk ke dashboard Toko Kelontong</p>
         </div>
 
+        @if($errors->any())
+            <div class="alert alert-danger py-2" role="alert">
+                @foreach($errors->all() as $error)
+                    <div>{{ $error }}</div>
+                @endforeach
+            </div>
+        @endif
+
         <form method="POST" action="{{ route('login.submit') }}">
             @csrf
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="admin@toko.test" required autofocus>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="admin@toko.test" value="{{ old('email') }}" required autofocus>
                 </div>
             </div>
             <div class="mb-4">

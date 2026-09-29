@@ -33,11 +33,17 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('products.create') }}"><i class="bi bi-plus-circle me-2"></i>Tambah Barang</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('users.index') }}"><i class="bi bi-people me-2"></i>Kelola User</a>
+            </li>
             <li class="nav-item mt-3">
                 <a class="nav-link" href="{{ route('home') }}"><i class="bi bi-eye me-2"></i>Lihat Situs</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}"><i class="bi bi-box-arrow-right me-2"></i>Logout</a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="nav-link border-0 bg-transparent w-100 text-start"><i class="bi bi-box-arrow-right me-2"></i>Logout</button>
+                </form>
             </li>
         </ul>
     </aside>
